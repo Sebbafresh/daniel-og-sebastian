@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WeatherInformationService } from './weather-information.service';
 
 @Component({
@@ -7,6 +8,9 @@ import { WeatherInformationService } from './weather-information.service';
   styleUrls: ['./sebastian-component.component.css']
 })
 export class SebastianComponentComponent implements OnInit {
+
+    public time$: Observable<string> = this.weatherInformationService.time$;
+    public temp$: Observable<number> = this.weatherInformationService.temp$;
 
   constructor(public weatherInformationService: WeatherInformationService) { }
 
